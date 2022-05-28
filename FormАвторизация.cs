@@ -113,19 +113,19 @@ namespace Аэропорт
                             reader.Close();
                             switch (ClassTotal.idRole)
                             {
-                                case (1)://Пилот
+                                    case (1)://Пилот
                                     
-                                    break;
-                                case (2)://техник
-                                    FormЛичныйКабинет flt = new FormЛичныйКабинет(ClassTotal.id);
-                                    Hide();
-                                    flt.ShowDialog();
-                                    Show();
-                                    break;
-                                case (3)://Кассир
+                                        break;
+                                    case (2)://техник
+                                        FormЛичныйКабинет flt = new FormЛичныйКабинет(ClassTotal.id, ClassTotal.idRole);
+                                        Hide();
+                                        flt.ShowDialog();
+                                        Show();
+                                        break;
+                                    case (3)://Кассир
                                     
-                                    break;
-                                case (6)://Обслуга
+                                        break;
+                                    case (6)://Обслуга
                                     
                                     break;
                                 case (7)://Администратор
@@ -244,6 +244,11 @@ namespace Аэропорт
                 { tsec = 59; }
             }
             textBoxTimer.Text = printNumber(tmin) + ':' + printNumber(tsec);
+        }
+
+        private void textBoxPassword_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private static string printNumber(int num)

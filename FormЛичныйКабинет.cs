@@ -14,12 +14,13 @@ namespace Аэропорт
 {
     public partial class FormЛичныйКабинет : Form
     {
-        public FormЛичныйКабинет(int id)
+        public FormЛичныйКабинет(int id, int role)
         {
             this.id = id;
+            this.role = role;
             InitializeComponent();
         }
-        int id;
+        int id, role;
         private void FormЛичныйКабинет_Load(object sender, EventArgs e)
         {
             byte[] imgBytes;        //Обмен между ОП и БД
@@ -44,6 +45,47 @@ namespace Аэропорт
                 pictureBoxАватар.Image = Image.FromStream(stream);
             }
             reader.Close();
+
+           
+
+            switch (role)
+            {
+                case (1)://Пилот
+                    textBox1.Text = "На данный момент задач нет";
+                    break;
+                case (2)://техник
+                    cmd.CommandText = "select * from [Самолёты] inner join Расписание on Самолёты.[ID самолёта] = Расписание.[ID самолёта]";
+                    reader = cmd.ExecuteReader();
+                    
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        if ((DateTime)reader["Время вылета"] >= DateTime.Today)
+                        {
+                            textBox1.Text += "Необходимо заправить: " + (string)reader["Название"] + Environment.NewLine;
+                        }
+                    }
+                    reader.Close();
+
+                    cmd.CommandText = "select * from [Самолёты]";
+                    reader = cmd.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        reader.Read();
+                        if ((DateTime)reader["Дата последнего ТО"] <= DateTime.Today)
+                        {
+                            textBox1.Text += "Необходимо провести ТО: " + (string)reader["Название"] + Environment.NewLine;
+                        }
+                    }
+                    reader.Close();
+
+                    break;
+                case (6)://Обслуга
+                    textBox1.Text = "На данный момент задач нет";
+
+                    break;
+            }
+
 
             //comboBoxРоль.Items.Clear();
             //SqlCommand command = ClassTotal.connection.CreateCommand();

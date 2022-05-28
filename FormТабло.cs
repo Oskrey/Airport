@@ -22,9 +22,17 @@ namespace Аэропорт
         {
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = new SqlCommand("Select * from [Расписание]", ClassTotal.connection);
+            da.SelectCommand = new SqlCommand("Select [ID рейса] as 'Номер рейса', Название AS 'Самолёт', Откуда, [Время вылета],Куда, [Время прилёта] from Расписание" +
+                " inner join Самолёты on Самолёты.[ID самолёта] = Расписание.[ID самолёта]", ClassTotal.connection);
             da.Fill(ds);
             dataGridView1.DataSource = ds.Tables[0];
+            
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Text = DateTime.Now.ToLongTimeString();
+            label2.Text = DateTime.Now.ToLongDateString();
         }
     }
 }

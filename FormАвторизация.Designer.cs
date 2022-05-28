@@ -52,9 +52,9 @@
             this.labelName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelName.Location = new System.Drawing.Point(89, 39);
             this.labelName.Name = "labelName";
-            this.labelName.Size = new System.Drawing.Size(64, 15);
+            this.labelName.Size = new System.Drawing.Size(62, 15);
             this.labelName.TabIndex = 35;
-            this.labelName.Text = "LegoStore";
+            this.labelName.Text = "Аэропорт";
             // 
             // buttonCapchaRefresh
             // 
@@ -121,8 +121,9 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(178, 20);
             this.textBoxPassword.TabIndex = 26;
-            this.textBoxPassword.Text = "Гость";
+            this.textBoxPassword.Text = "Техник";
             this.textBoxPassword.UseSystemPasswordChar = true;
+            this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
             // 
             // textBoxLogin
             // 
@@ -131,7 +132,7 @@
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(215, 20);
             this.textBoxLogin.TabIndex = 25;
-            this.textBoxLogin.Text = "Гость";
+            this.textBoxLogin.Text = "Техник";
             // 
             // textBoxAlert
             // 
@@ -174,7 +175,6 @@
             // 
             // buttonLook
             // 
-            this.buttonLook.BackgroundImage = global::Аэропорт.Properties.Resources.Glaz;
             this.buttonLook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.buttonLook.Location = new System.Drawing.Point(203, 121);
             this.buttonLook.Name = "buttonLook";
