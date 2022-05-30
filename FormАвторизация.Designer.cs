@@ -121,7 +121,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(178, 20);
             this.textBoxPassword.TabIndex = 26;
-            this.textBoxPassword.Text = "Техник";
+            this.textBoxPassword.Text = "Админ";
             this.textBoxPassword.UseSystemPasswordChar = true;
             this.textBoxPassword.TextChanged += new System.EventHandler(this.textBoxPassword_TextChanged);
             // 
@@ -132,7 +132,7 @@
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(215, 20);
             this.textBoxLogin.TabIndex = 25;
-            this.textBoxLogin.Text = "Техник";
+            this.textBoxLogin.Text = "Админ";
             // 
             // textBoxAlert
             // 

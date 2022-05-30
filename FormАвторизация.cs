@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Аэропорт
@@ -19,7 +14,7 @@ namespace Аэропорт
         {
             InitializeComponent();
         }
-        
+
         private Bitmap CreateImage(int Width, int Height) //генерация изображения со случайным текстом
         {
             Random rnd = new Random();
@@ -113,23 +108,29 @@ namespace Аэропорт
                             reader.Close();
                             switch (ClassTotal.idRole)
                             {
-                                    case (1)://Пилот
-                                    
-                                        break;
-                                    case (2)://техник
-                                        FormЛичныйКабинет flt = new FormЛичныйКабинет(ClassTotal.id, ClassTotal.idRole);
-                                        Hide();
-                                        flt.ShowDialog();
-                                        Show();
-                                        break;
-                                    case (3)://Кассир
-                                    
-                                        break;
-                                    case (6)://Обслуга
-                                    
+                                case 1://Пилот
+                                    FormЛичныйКабинет личныйКабинет1 = new FormЛичныйКабинет(ClassTotal.id, ClassTotal.idRole);
+                                    Hide();
+                                    личныйКабинет1.ShowDialog();
+                                    Show();
+                                    break;
+                                case 2://техник
+                                    FormЛичныйКабинет личныйКабинет2 = new FormЛичныйКабинет(ClassTotal.id, ClassTotal.idRole);
+                                    Hide();
+                                    личныйКабинет2.ShowDialog();
+                                    Show();
+                                    break;
+                                case (6)://Обслуга
+                                    FormЛичныйКабинет личныйКабинет = new FormЛичныйКабинет(ClassTotal.id, ClassTotal.idRole);
+                                    Hide();
+                                    личныйКабинет.ShowDialog();
+                                    Show();
                                     break;
                                 case (7)://Администратор
-                                    
+                                    FormДобавлениеРейса добавлениеРейса = new FormДобавлениеРейса();
+                                    Hide();
+                                    добавлениеРейса.ShowDialog();
+                                    Show();
                                     break;
                                 case (9):
                                     FormТабло ft = new FormТабло();
@@ -148,7 +149,7 @@ namespace Аэропорт
                     }
                     else
                     {
-                        MessageBox.Show("Логин и/или пароль введены неверно. Осталось попыток:" + w);
+                        MessageBox.Show("Логин и/или пароль введены неверно. Осталось попыток: " + w);
                         reader.Close();
                         w--;
                     }

@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Аэропорт
@@ -36,7 +30,7 @@ namespace Аэропорт
             cmd.CommandText = "select * from [Сотрудники] where [ID сотрудника] = " + id;
             SqlDataReader reader = cmd.ExecuteReader();
             reader.Read();
-            labelПриветствие.Text +=" "+ reader["Фамилия сотрудника"].ToString() + " "+reader["Имя сотрудника"].ToString();
+            labelПриветствие.Text += " " + reader["Фамилия сотрудника"].ToString() + " " + reader["Имя сотрудника"].ToString();
             //Почему
             if (!reader.IsDBNull(reader.GetOrdinal("Фото")))  //Пусто
             {
@@ -46,7 +40,7 @@ namespace Аэропорт
             }
             reader.Close();
 
-           
+
 
             switch (role)
             {
@@ -56,7 +50,7 @@ namespace Аэропорт
                 case (2)://техник
                     cmd.CommandText = "select * from [Самолёты] inner join Расписание on Самолёты.[ID самолёта] = Расписание.[ID самолёта]";
                     reader = cmd.ExecuteReader();
-                    
+
                     if (reader.HasRows)
                     {
                         reader.Read();
@@ -87,18 +81,7 @@ namespace Аэропорт
             }
 
 
-            //comboBoxРоль.Items.Clear();
-            //SqlCommand command = ClassTotal.connection.CreateCommand();
-            //command.CommandText = " select [ID роли], [Название роли] from Роли";
-            //SqlDataReader r = command.ExecuteReader();
-            //if (r.HasRows)
-            //{
-            //    while (r.Read())
-            //    {
-            //        comboBoxРоль.Items.Add(r[0] + ", " + r[1]);
-            //    }
-            //}
-            //r.Close();
+
         }
 
         private void label1_Click(object sender, EventArgs e)

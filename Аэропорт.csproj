@@ -53,6 +53,12 @@
     <Compile Include="FormАвторизация.Designer.cs">
       <DependentUpon>FormАвторизация.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormДобавлениеРейса.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormДобавлениеРейса.Designer.cs">
+      <DependentUpon>FormДобавлениеРейса.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormЛичныйКабинет.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormАвторизация.resx">
       <DependentUpon>FormАвторизация.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormДобавлениеРейса.resx">
+      <DependentUpon>FormДобавлениеРейса.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormЛичныйКабинет.resx">
       <DependentUpon>FormЛичныйКабинет.cs</DependentUpon>

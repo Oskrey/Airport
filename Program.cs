@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Аэропорт
@@ -13,7 +10,7 @@ namespace Аэропорт
         /// <summary>
         /// Главная точка входа для приложения.
         /// </summary>
-        [STAThread]  
+        [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
@@ -47,6 +44,6 @@ namespace Аэропорт
             }
 
         }
-        
+
     }
 }
